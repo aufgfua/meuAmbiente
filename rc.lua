@@ -13,6 +13,7 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
+newline = '\n'
 
 ------------------------------------------------------------------------ nohup com o código que tu quer tira ele do terminal
 ------------------------------------------------------------------------ se usar & no fim da linha ele roda em background
@@ -293,39 +294,39 @@ globalkeys = gears.table.join(
 
 
 
-    awful.key({ modkey,           }, "Up", function () awful.spawn("amixer sset Master 2%+") end,
+    awful.key({ modkey,           }, "Up", function () awful.spawn("amixer sset Master 2%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "increase volume by 2%", group = "audio"}),
-    awful.key({ modkey,           }, "Down", function () awful.spawn("amixer sset Master 2%-") end,
+    awful.key({ modkey,           }, "Down", function () awful.spawn("amixer sset Master 2%-")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "decrease volume by 2%", group = "audio"}),
 
 
-    awful.key({ modkey,      "Shift"     }, "Up", function () awful.spawn("amixer sset Master 5%+") end,
+    awful.key({ modkey,      "Shift"     }, "Up", function () awful.spawn("amixer sset Master 5%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "increase volume by 5%", group = "audio"}),
-    awful.key({ modkey,      "Shift"     }, "Down", function () awful.spawn("amixer sset Master 5%-") end,
+    awful.key({ modkey,      "Shift"     }, "Down", function () awful.spawn("amixer sset Master 5%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease volume by 5%", group = "audio"}),
 
 
-    awful.key({ modkey,   "Control" }, "Up", function () awful.spawn("amixer sset Master 100%") end,
+    awful.key({ modkey,   "Control" }, "Up", function () awful.spawn("amixer sset Master 100%") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "set volume 100%", group = "audio"}),
-    awful.key({ modkey,      "Control"     }, "Down", function () awful.spawn("amixer sset Master 0%") end,
+    awful.key({ modkey,      "Control"     }, "Down", function () awful.spawn("amixer sset Master 0%")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "set volume 0%", group = "audio"}),
 
 
-    awful.key({ "Control",   "Shift"        }, "Up", function () awful.spawn("amixer set Master toggle on") end,
+    awful.key({ "Control",   "Shift"        }, "Up", function () awful.spawn("amixer set Master toggle on")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "enable audio", group = "audio"}),
-    awful.key({ "Control",      "Shift"     }, "Down", function () awful.spawn("amixer set Master toggle off") end,
+    awful.key({ "Control",      "Shift"     }, "Down", function () awful.spawn("amixer set Master toggle off")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "disable audio", group = "audio"}),
 
 
-    awful.key({ modkey,    "Control" }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") end,
+    awful.key({ modkey,    "Control" }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease left volume by 2%", group = "audio"}),
-    awful.key({ modkey,     "Control"     }, "Right", function () awful.spawn("amixer sset Master 0%-,2%-") end,
+    awful.key({ modkey,     "Control"     }, "Right", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease right volume by 2%", group = "audio"}),
 
 
-    awful.key({ modkey,       "Shift"        }, "Left", function () awful.spawn("amixer sset Master 2%+,0%+") end,
+    awful.key({ modkey,       "Shift"        }, "Left", function () awful.spawn("amixer sset Master 2%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "increase left volume by 2%", group = "audio"}),
-    awful.key({ modkey,      "Shift"     }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") end,
+    awful.key({ modkey,      "Shift"     }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "increase right volume by 2%", group = "audio"}),
 
 -- ------------------------------------FAZER OS AVISOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
