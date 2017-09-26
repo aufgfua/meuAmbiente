@@ -238,25 +238,26 @@ root.buttons(gears.table.join(
     awful.button({ }, 5, awful.tag.viewprev)
 ))
 -- }}}
+awful.util.spawn("sh /home/arch/.config/awesome/start.sh")
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "j",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+    awful.key({ modkey,           }, "k",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
 
-    awful.key({ modkey,           }, "k",
+    awful.key({ modkey,           }, "Right",
         function ()
             awful.client.focus.byidx( 1)
         end,
         {description = "focus next by index", group = "client"}
     ),
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey,           }, "Left",
         function ()
             awful.client.focus.byidx(-1)
         end,
@@ -266,13 +267,13 @@ globalkeys = gears.table.join(
               {description = "show main menu", group = "awesome"}),
 
     -- Layout manipulation
-    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end,
+    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx(  1)    end,
               {description = "swap with next client by index", group = "client"}),
-    awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end,
+    awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx( -1)    end,
               {description = "swap with previous client by index", group = "client"}),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end,
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end,
               {description = "focus the next screen", group = "screen"}),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end,
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end,
               {description = "focus the previous screen", group = "screen"}),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto,
               {description = "jump to urgent client", group = "client"}),
@@ -320,14 +321,14 @@ globalkeys = gears.table.join(
 
     awful.key({ modkey,    "Control" }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease left volume by 2%", group = "audio"}),
-    awful.key({ modkey,     "Control"     }, "Right", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
-              {description = "decrease right volume by 2%", group = "audio"}),
-
-
-    awful.key({ modkey,       "Shift"        }, "Left", function () awful.spawn("amixer sset Master 2%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+    awful.key({ modkey,       "Control"        }, "Right", function () awful.spawn("amixer sset Master 2%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "increase left volume by 2%", group = "audio"}),
+
+
     awful.key({ modkey,      "Shift"     }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "increase right volume by 2%", group = "audio"}),
+    awful.key({ modkey,     "Shift"     }, "Left", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+              {description = "decrease right volume by 2%", group = "audio"}),
 
 -- ------------------------------------FAZER OS AVISOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
@@ -645,4 +646,3 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-awful.util.spawn("sh /home/arch/.config/awesome/start.sh")
