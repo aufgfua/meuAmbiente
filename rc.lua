@@ -44,8 +44,8 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir("config") .. "default/theme.lua")
-
+-- beautiful.init(gears.filesystem.get_themes_dir("config") .. "default/theme.lua")
+beautiful.init("/home/arch/.config/awesome/theme.lua")
 beautiful.get().wallpaper = "/home/arch/Desktop/imagens/wallpaper.jpg"
 
 -- This is used later as the default terminal and editor to run.
@@ -287,6 +287,48 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
+
+
+
+
+
+
+    awful.key({ modkey,           }, "Up", function () awful.spawn("amixer sset Master 2%+") end,
+              {description = "increase volume by 2%", group = "audio"}),
+    awful.key({ modkey,           }, "Down", function () awful.spawn("amixer sset Master 2%-") end,
+              {description = "decrease volume by 2%", group = "audio"}),
+
+
+    awful.key({ modkey,      "Shift"     }, "Up", function () awful.spawn("amixer sset Master 5%+") end,
+              {description = "increase volume by 5%", group = "audio"}),
+    awful.key({ modkey,      "Shift"     }, "Down", function () awful.spawn("amixer sset Master 5%-") end,
+              {description = "decrease volume by 5%", group = "audio"}),
+
+
+    awful.key({ modkey,   "Control" }, "Up", function () awful.spawn("amixer sset Master 100%") end,
+              {description = "set volume 100%", group = "audio"}),
+    awful.key({ modkey,      "Control"     }, "Down", function () awful.spawn("amixer sset Master 0%") end,
+              {description = "set volume 0%", group = "audio"}),
+
+
+    awful.key({ "Control",   "Shift"        }, "Up", function () awful.spawn("amixer set Master toggle on") end,
+              {description = "enable audio", group = "audio"}),
+    awful.key({ "Control",      "Shift"     }, "Down", function () awful.spawn("amixer set Master toggle off") end,
+              {description = "disable audio", group = "audio"}),
+
+
+    awful.key({ modkey,    "Control" }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") end,
+              {description = "decrease left volume by 2%", group = "audio"}),
+    awful.key({ modkey,     "Control"     }, "Right", function () awful.spawn("amixer sset Master 0%-,2%-") end,
+              {description = "decrease right volume by 2%", group = "audio"}),
+
+
+    awful.key({ modkey,       "Shift"        }, "Left", function () awful.spawn("amixer sset Master 2%+,0%+") end,
+              {description = "increase left volume by 2%", group = "audio"}),
+    awful.key({ modkey,      "Shift"     }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") end,
+              {description = "increase right volume by 2%", group = "audio"}),
+
+-- ------------------------------------FAZER OS AVISOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
 

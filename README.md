@@ -1,1 +1,0 @@
-Minha configuração do awesome iniciando internet e o resto
