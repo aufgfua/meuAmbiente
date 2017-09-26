@@ -1,0 +1,1 @@
+echo "4m0 8ici" | sudo -S iw dev wlp6s0 connect "IFRS-Aluno"

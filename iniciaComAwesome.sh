@@ -1,0 +1,1 @@
+sh /home/arch/.config/awesome/start.sh
