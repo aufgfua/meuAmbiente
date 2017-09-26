@@ -1,0 +1,1 @@
+echo "4m0 8ici" | sudo -S  docker run -e "WEBAPP_ROOT=public_html" -v /home/arch/Desktop/ambiente:/app -e WEBAPP_USER_ID=$(id -u) -p 80:80 enyalius/dev:latest
