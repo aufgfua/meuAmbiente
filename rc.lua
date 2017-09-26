@@ -330,6 +330,32 @@ globalkeys = gears.table.join(
     awful.key({ modkey,     "Shift"     }, "Left", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease right volume by 2%", group = "audio"}),
 
+
+
+
+    awful.key({ "Control",   "Shift"    , modkey    }, "Up", function () awful.spawn("xbacklight -inc 20") 
+    -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
+    end,              {description = "increase screen brightness by 2", group = "screen"}),
+
+
+    awful.key({ "Control",      "Shift" , modkey    }, "Down", function () awful.spawn("xbacklight -dec 20") 
+    -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")
+     end,              {description = "decrease screen brightness by 20", group = "screen"}),
+
+
+    awful.key({ "Control",      "Shift" , modkey    }, "0", function () awful.spawn("xrandr --output LVDS1 --brightness 0")  awful.spawn("xbacklight -set 0") 
+    -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
+    end,              {description = "turn off screen", group = "screen"}),
+
+
+    awful.key({ "Control",      "Shift" , modkey    }, "9", function () awful.spawn("xrandr --output LVDS1 --brightness 1")  awful.spawn("xbacklight -set 100") 
+    -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
+    end,              {description = "turn on screen", group = "screen"}),
+
+
+
+
+
 -- ------------------------------------FAZER OS AVISOS !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 
