@@ -313,42 +313,62 @@ globalkeys = gears.table.join(
               {description = "set volume 0%", group = "audio"}),
 
 
-    awful.key({ "Control",   "Shift"        }, "Up", function () awful.spawn("amixer set Master toggle on")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
+    awful.key({ "Control",   "Shift"  ,   modkey   }, "Up", function () awful.spawn("amixer set Master toggle on")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "enable audio", group = "audio"}),
-    awful.key({ "Control",      "Shift"     }, "Down", function () awful.spawn("amixer set Master toggle off")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
+    awful.key({ "Control",      "Shift"  , modkey   }, "Down", function () awful.spawn("amixer set Master toggle off")  awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "disable audio", group = "audio"}),
 
 
-    awful.key({ modkey,    "Control" }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+    awful.key({ modkey,    "Shift"   }, "Left", function () awful.spawn("amixer sset Master 2%-,0%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease left volume by 2%", group = "audio"}),
-    awful.key({ modkey,       "Control"        }, "Right", function () awful.spawn("amixer sset Master 2%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+    awful.key({ modkey,    "Shift"        }, "Right", function () awful.spawn("amixer sset Master 2%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "increase left volume by 2%", group = "audio"}),
 
 
-    awful.key({ modkey,      "Shift"     }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
+    awful.key({ modkey,        "Control"      }, "Right", function () awful.spawn("amixer sset Master 0%+,2%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") end,
               {description = "increase right volume by 2%", group = "audio"}),
-    awful.key({ modkey,     "Shift"     }, "Left", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+    awful.key({ modkey,      "Control"   }, "Left", function () awful.spawn("amixer sset Master 0%-,2%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
               {description = "decrease right volume by 2%", group = "audio"}),
 
 
 
+    awful.key({ modkey,   "Shift"  }, "-", function () awful.spawn("amixer sset Master 100%-,0%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+              {description = "set left volume on 0%", group = "audio"}),
+    awful.key({ modkey,        "Shift"      }, "=", function () awful.spawn("amixer sset Master 100%+,0%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+              {description = "set left volume on 100%", group = "audio"}),
 
-    awful.key({ "Control",   "Shift"    , modkey    }, "Up", function () awful.spawn("xbacklight -inc 20") 
+
+
+    awful.key({ modkey,    "Control" }, "-", function () awful.spawn("amixer sset Master 0%-,100%-") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+              {description = "set right volume on 0%", group = "audio"}),
+    awful.key({ modkey,       "Control"   }, "=", function () awful.spawn("amixer sset Master 0%+,100%+") awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")  end,
+              {description = "set right volume on 100%", group = "audio"}),
+
+
+
+
+
+
+
+
+
+
+    awful.key({ "Control",   "Shift"   }, "Up", function () awful.spawn("xbacklight -inc 20") 
     -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
     end,              {description = "increase screen brightness by 2", group = "screen"}),
 
 
-    awful.key({ "Control",      "Shift" , modkey    }, "Down", function () awful.spawn("xbacklight -dec 20") 
+    awful.key({ "Control",      "Shift"   }, "Down", function () awful.spawn("xbacklight -dec 20") 
     -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh")
      end,              {description = "decrease screen brightness by 20", group = "screen"}),
 
 
-    awful.key({ "Control",      "Shift" , modkey    }, "0", function () awful.spawn("xrandr --output LVDS1 --brightness 0")  awful.spawn("xbacklight -set 0") 
+    awful.key({ "Control",      "Shift"   }, "0", function () awful.spawn("xrandr --output LVDS1 --brightness 0")  awful.spawn("xbacklight -set 0") 
     -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
     end,              {description = "turn off screen", group = "screen"}),
 
 
-    awful.key({ "Control",      "Shift" , modkey    }, "9", function () awful.spawn("xrandr --output LVDS1 --brightness 1")  awful.spawn("xbacklight -set 100") 
+    awful.key({ "Control",      "Shift"  }, "9", function () awful.spawn("xrandr --output LVDS1 --brightness 1")  awful.spawn("xbacklight -set 100") 
     -- awful.spawn("sh /home/arch/.config/awesome/audioHandle.sh") 
     end,              {description = "turn on screen", group = "screen"}),
 
