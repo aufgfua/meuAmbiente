@@ -1,0 +1,5 @@
+network={
+	ssid="isnar"
+	#psk="14040925"
+	psk=c8e3a97e6cd65d66d083bd00d9270ddb2f935f10ce33de736a887c076534abab
+}

@@ -1,1 +1,1 @@
-echo "4m0 8ici" | sudo -S wpa_supplicant -B -i wlp6s0 -c /home/arch/Desktop/redes/isnar
+echo "4m0 8ici" | sudo -S wpa_supplicant -B -i wlp6s0 -c /home/arc/.config/awesome/redes/isnar

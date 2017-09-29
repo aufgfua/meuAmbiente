@@ -399,7 +399,7 @@ globalkeys = gears.table.join(
               {description = "start thunar file manager", group = "programs"}),
 
 
-    awful.key({ modkey }, "i", function() awful.util.spawn("sh /home/arch/.config/awesome/terminal.sh") end,
+    awful.key({ modkey }, "i", function() awful.util.spawn("sh /home/arch/.config/awesome/autoconnect.sh") end,
               {description = "connect to internet", group = "launcher"}),
 
 
